@@ -1,0 +1,235 @@
+﻿import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, Leaf, Route, Sparkles, Wind } from "lucide-react";
+import BrandOrbit from "../components/BrandOrbit";
+import CountUp from "../components/CountUp";
+
+import forestPoster from "../assets/tba/auto-brand-city.png";
+
+const ease = [0.22, 1, 0.36, 1];
+
+const reveal = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.85, ease } },
+};
+
+const services = [
+  {
+    icon: Route,
+    number: "01",
+    title: "Transit media",
+    text: "Thoughtful vehicle branding that carries your story naturally through the city.",
+  },
+  {
+    icon: Leaf,
+    number: "02",
+    title: "Outdoor presence",
+    text: "Clear, memorable outdoor campaigns designed to belong in the places people live.",
+  },
+  {
+    icon: Sparkles,
+    number: "03",
+    title: "Brand experiences",
+    text: "Warm, human activations that turn a brief encounter into a lasting feeling.",
+  },
+];
+
+const banners = [
+  { number: "01", eyebrow: "Strategy", title: "Routes chosen with purpose", text: "We study movement, neighbourhoods and audience behaviour before a campaign enters the street." },
+  { number: "02", eyebrow: "Creative", title: "Designed to be remembered", text: "Clear visual ideas made for real-world attention spans, moving vehicles and busy city environments." },
+  { number: "03", eyebrow: "Execution", title: "Crafted for every surface", text: "From a single auto hood to an entire fleet, every installation receives the same considered finish." },
+  { number: "04", eyebrow: "Reach", title: "Present where life happens", text: "Campaigns travel through markets, business districts, residential routes and everyday moments." },
+  { number: "05", eyebrow: "Partnership", title: "With you from brief to road", text: "Planning, production, deployment and reporting are handled by one experienced, accountable team." },
+];
+
+export default function Home() {
+  return (
+    <main className="nature-home">
+      <section className="nature-hero">
+        <img className="nature-video nature-video-poster" src={forestPoster} alt="" aria-hidden="true" />
+        <video
+          className="nature-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          poster={forestPoster}
+          aria-hidden="true"
+          onLoadedData={(event) => event.currentTarget.classList.add("video-ready")}
+        >
+          <source src="https://www.pexels.com/download/video/36912560/" type="video/mp4" />
+        </video>
+        <div className="nature-veil" />
+        <div className="nature-light" />
+
+        <div className="nature-shell nature-hero-content">
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="nature-kicker"
+          >
+            Ideas in motion · Built for attention
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.5, ease }}
+          >
+            Let your brand
+            <br />
+            <em>move naturally.</em>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="nature-intro"
+          >
+            Calm, considered outdoor advertising that becomes part of the
+            journey—not part of the noise.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="nature-actions"
+          >
+            <Link to="/work" className="nature-button nature-button-light">
+              See our work <ArrowRight size={16} />
+            </Link>
+            <Link to="/contact" className="nature-text-link">
+              Start a conversation
+            </Link>
+          </motion.div>
+        </div>
+
+        <div className="nature-scroll">
+          <span>Slow down</span>
+          <motion.i
+            animate={{ height: [24, 44, 24] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+      </section>
+
+      <BrandOrbit />
+
+      <section className="nature-statement">
+        <div className="nature-shell nature-statement-grid">
+          <motion.div
+            variants={reveal}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <span className="nature-section-number">A quieter approach</span>
+            <h2>Visibility with feeling.</h2>
+          </motion.div>
+          <motion.div
+            variants={reveal}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="nature-statement-copy"
+          >
+            <Wind size={28} strokeWidth={1.4} />
+            <p>
+              The best outdoor media feels effortless. We blend smart routes,
+              human insight and beautiful craft to help brands travel through
+              real life with clarity and grace.
+            </p>
+            <Link to="/about">Our story <ArrowRight size={15} /></Link>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="nature-services">
+        <div className="nature-shell">
+          <div className="nature-section-head">
+            <span>What we create</span>
+            <h2>Meaningful presence,<br />where life happens.</h2>
+          </div>
+          <div className="nature-service-list">
+            {services.map((service, index) => (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.75, delay: index * 0.12, ease }}
+                className="nature-service-card"
+              >
+                <span className="nature-service-number">{service.number}</span>
+                <service.icon size={25} strokeWidth={1.4} />
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <Link to="/services" aria-label={`Explore ${service.title}`}>
+                  <ArrowRight size={18} />
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-stats">
+        <div className="nature-shell home-stats-grid">
+          {[
+            { value: 20, label: "Years of Experience" },
+            { value: 500, label: "Branding Specialists" },
+            { value: 20, label: "Industry Awards" },
+            { value: 500, label: "Projects Delivered" },
+          ].map((stat) => (
+            <div className="home-stat" key={stat.label}>
+              <CountUp value={stat.value} />
+              <p>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-banners">
+        {banners.map((banner, index) => (
+          <motion.article
+            key={banner.number}
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.85, ease }}
+            className={`home-banner home-banner-${index + 1}`}
+          >
+            <div className="nature-shell home-banner-inner">
+              <span>{banner.number}</span>
+              <div>
+                <p>{banner.eyebrow}</p>
+                <h2>{banner.title}</h2>
+              </div>
+              <p className="home-banner-copy">{banner.text}</p>
+            </div>
+          </motion.article>
+        ))}
+      </section>
+
+      <section className="nature-cta">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease }}
+          className="nature-shell nature-cta-inner"
+        >
+          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-cta-logo" />
+          <p>Have a story worth moving?</p>
+          <h2>Let&rsquo;s give it<br /><em>somewhere to go.</em></h2>
+          <Link to="/contact" className="nature-button nature-button-dark">
+            Begin a project <ArrowRight size={16} />
+          </Link>
+        </motion.div>
+      </section>
+    </main>
+  );
+}
+
