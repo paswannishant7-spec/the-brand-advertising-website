@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Send, CheckCircle2, Route, Sparkles } from "lucide-react";
+import { MapPin, Mail, Clock, Send, CheckCircle2, Route, Sparkles } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 import campaignOne from "../assets/tba/auto-hood-route.png";
 import campaignTwo from "../assets/tba/auto-hood-benefits.png";
@@ -210,6 +210,10 @@ export default function Contact() {
                   <a href="mailto:admin@thebrandadvertising.com" className="hover:text-white break-all">
                     admin@thebrandadvertising.com
                   </a>
+                </li>
+                <li className="flex gap-4">
+                  <Clock size={18} className="text-brand-rose shrink-0" />
+                  <span>Monday to Saturday · 10:00 AM–7:00 PM</span>
                 </li>
               </ul>
             </div>
