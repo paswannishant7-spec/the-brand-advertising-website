@@ -50,7 +50,17 @@ export default function Footer() {
             Services
           </h4>
           <ul className="space-y-3 text-sm">
-            {services.map((service) => <li key={service}>{service}</li>)}
+            {services.map((service) => (
+              <li key={service}>
+                <Link
+                  to="/services"
+                  className="hover:text-[#f1c94c] transition-colors"
+                  aria-label={`View ${service} service`}
+                >
+                  {service}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 

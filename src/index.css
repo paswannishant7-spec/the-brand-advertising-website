@@ -1238,6 +1238,10 @@ footer {
   background: linear-gradient(135deg, #0a66c2, #103b70);
 }
 
+.social-facebook {
+  background: linear-gradient(135deg, #1877f2, #0d47a1);
+}
+
 @media (max-width: 640px) {
   .floating-socials {
     right: 14px;

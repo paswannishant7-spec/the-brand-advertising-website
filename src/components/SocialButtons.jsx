@@ -16,25 +16,42 @@ function LinkedInIcon() {
   );
 }
 
+function FacebookIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H8v3h2.6v8h3.1Z" />
+    </svg>
+  );
+}
+
 const socialLinks = [
   {
     label: "Follow TBA on Instagram",
     href: "https://www.instagram.com/the.brandadvertising?igsh=aWM5eXE4bnl6YzRu",
     className: "social-instagram",
+    name: "Instagram",
     Icon: InstagramIcon,
   },
   {
     label: "Connect with Dimcy Aggarwal on LinkedIn",
     href: "https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/",
     className: "social-linkedin",
+    name: "LinkedIn",
     Icon: LinkedInIcon,
+  },
+  {
+    label: "Follow TBA on Facebook",
+    href: "https://www.facebook.com/profile.php?id=61584311907761",
+    className: "social-facebook",
+    name: "Facebook",
+    Icon: FacebookIcon,
   },
 ];
 
 export default function SocialButtons() {
   return (
     <aside className="floating-socials" aria-label="TBA social media">
-      {socialLinks.map(({ label, href, className, Icon }) => (
+      {socialLinks.map(({ label, href, className, name, Icon }) => (
         <a
           key={href}
           href={href}
@@ -45,7 +62,7 @@ export default function SocialButtons() {
           className={className}
         >
           <Icon size={22} strokeWidth={2.2} />
-          <span>{className === "social-instagram" ? "Instagram" : "LinkedIn"}</span>
+          <span>{name}</span>
         </a>
       ))}
     </aside>
