@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Send, CheckCircle2, Route, Sparkles } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
@@ -6,6 +7,8 @@ import campaignOne from "../assets/tba/auto-hood-route.png";
 import campaignTwo from "../assets/tba/auto-hood-benefits.png";
 
 export default function Contact() {
+  const location = useLocation();
+  const nameInputRef = useRef(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -14,6 +17,21 @@ export default function Contact() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    const shouldOpenQuote = new URLSearchParams(location.search).get("quote") === "1";
+    if (!shouldOpenQuote) return undefined;
+
+    const timer = window.setTimeout(() => {
+      document.getElementById("quote-form")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      window.setTimeout(() => nameInputRef.current?.focus({ preventScroll: true }), 650);
+    }, 120);
+
+    return () => window.clearTimeout(timer);
+  }, [location.search]);
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -37,7 +55,7 @@ export default function Contact() {
         video="https://www.pexels.com/download/video/32521689/"
       />
 
-      <section className="py-20 bg-cream">
+      <section id="quote-form" className="py-20 bg-cream scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-14">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -71,6 +89,7 @@ export default function Contact() {
                       Your Name
                     </label>
                     <input
+                      ref={nameInputRef}
                       required
                       name="name"
                       value={form.name}
