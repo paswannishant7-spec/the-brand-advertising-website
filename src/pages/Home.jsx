@@ -224,9 +224,13 @@ export default function Home() {
           <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-cta-logo" />
           <p>Have a story worth moving?</p>
           <h2>Let&rsquo;s give it<br /><em>somewhere to go.</em></h2>
-          <Link to="/contact" className="nature-button nature-button-dark">
-            Begin a project <ArrowRight size={16} />
-          </Link>
+          <a
+            href="mailto:admin@thebrandadvertising.com?subject=Campaign%20Enquiry%20for%20TBA"
+            className="nature-button nature-button-dark"
+            aria-label="Email The Brand Advertising"
+          >
+            admin@thebrandadvertising.com <ArrowRight size={16} />
+          </a>
         </motion.div>
       </section>
     </main>
