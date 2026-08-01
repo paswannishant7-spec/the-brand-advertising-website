@@ -146,11 +146,12 @@ export default function Services() {
         {services.map((s, i) => (
           <motion.div
             key={s.title}
+            id={s.title.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className={`border-b border-charcoal/8 ${i % 2 === 1 ? "bg-mist" : "bg-cream"}`}
+            className={`scroll-mt-24 border-b border-charcoal/8 ${i % 2 === 1 ? "bg-mist" : "bg-cream"}`}
           >
             <div
               className={`max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center ${

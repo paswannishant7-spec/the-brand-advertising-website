@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import { MapPin, Mail, Clock } from "lucide-react";
 
 const services = [
-  "Auto Hood Branding",
-  "Cab & Fleet Branding",
-  "Bus Branding",
-  "Retail Branding",
-  "Wall Painting",
-  "BTL Activation",
+  { label: "Auto Hood Branding", id: "auto-hood-branding" },
+  { label: "Cab Branding", id: "cab-branding" },
+  { label: "Bus Branding", id: "bus-branding" },
+  { label: "Retail Branding", id: "retail-branding" },
+  { label: "Wall Painting", id: "wall-painting" },
+  { label: "BTL Activities", id: "btl-activities" },
 ];
 
 export default function Footer() {
@@ -51,13 +51,13 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm">
             {services.map((service) => (
-              <li key={service}>
+              <li key={service.id}>
                 <Link
-                  to="/services"
+                  to={`/services#${service.id}`}
                   className="hover:text-[#f1c94c] transition-colors"
-                  aria-label={`View ${service} service`}
+                  aria-label={`View ${service.label} service`}
                 >
-                  {service}
+                  {service.label}
                 </Link>
               </li>
             ))}
