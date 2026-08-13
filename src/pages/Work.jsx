@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import RelaxingHero from "../components/RelaxingHero";
 
@@ -26,8 +26,35 @@ const gallery = [
 
 const clientNames = ["Hero", "IndianOil", "Wagh Bakri", "Campus", "TVS"];
 
+const clientStories = [
+  {
+    client: "Client Story 01",
+    title: "Approved project details coming soon",
+    summary: "Ready for the client name, campaign objective, execution details and measurable results.",
+    img: autoBrandingAd,
+  },
+  {
+    client: "Client Story 02",
+    title: "Campaign information pending approval",
+    summary: "Ready for the approved project narrative, location, campaign period and outcome.",
+    img: brandMoves,
+  },
+  {
+    client: "Client Story 03",
+    title: "Real project story to be added",
+    summary: "The carousel is complete and ready for final text, photographs and client logos.",
+    img: billboardCities,
+  },
+];
+
 export default function Work() {
   const [active, setActive] = useState(null);
+  const [storyIndex, setStoryIndex] = useState(0);
+  const story = clientStories[storyIndex];
+
+  const changeStory = (direction) => {
+    setStoryIndex((current) => (current + direction + clientStories.length) % clientStories.length);
+  };
 
   return (
     <div>
@@ -79,15 +106,39 @@ export default function Work() {
         </div>
       </section>
 
-      {/* CASE STUDIES PLACEHOLDER */}
+      {/* CLIENT STORIES CAROUSEL */}
       <section className="py-24 bg-cream">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <SectionHeading eyebrow="Case Studies" title="Detailed case studies, coming soon" align="center" />
-          <p className="text-charcoal-soft/70 max-w-xl mx-auto -mt-6">
-            We&rsquo;re putting together in-depth breakdowns of our recent
-            campaigns. Check back soon, or get in touch for campaign details
-            directly.
-          </p>
+        <div className="max-w-6xl mx-auto px-6">
+          <SectionHeading eyebrow="Client Stories" title="Campaign stories built to move" align="center" />
+          <div className="relative overflow-hidden rounded-3xl bg-ink text-white shadow-soft">
+            <AnimatePresence mode="wait">
+              <motion.article
+                key={storyIndex}
+                initial={{ opacity: 0, x: 55 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -55 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="grid md:grid-cols-2 min-h-[430px]"
+              >
+                <img src={story.img} alt="Client story placeholder" className="w-full h-full min-h-[300px] object-cover" />
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <p className="text-brand-rose text-xs uppercase tracking-[0.22em] mb-4">{story.client}</p>
+                  <h3 className="font-display text-3xl md:text-4xl font-semibold mb-5">{story.title}</h3>
+                  <p className="text-white/70 leading-relaxed">{story.summary}</p>
+                  <p className="mt-7 text-xs uppercase tracking-[0.18em] text-white/45">Content awaiting client approval</p>
+                </div>
+              </motion.article>
+            </AnimatePresence>
+
+            <div className="absolute bottom-5 right-5 flex gap-2">
+              <button onClick={() => changeStory(-1)} aria-label="Previous client story" className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center transition-colors">
+                <ChevronLeft size={20} />
+              </button>
+              <button onClick={() => changeStory(1)} aria-label="Next client story" className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center transition-colors">
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 

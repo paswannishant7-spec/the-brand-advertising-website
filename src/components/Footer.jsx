@@ -5,9 +5,14 @@ const services = [
   { label: "Auto Hood Branding", id: "auto-hood-branding" },
   { label: "Cab Branding", id: "cab-branding" },
   { label: "Bus Branding", id: "bus-branding" },
+  { label: "Van Activation", id: "van-activation" },
   { label: "Retail Branding", id: "retail-branding" },
   { label: "Wall Painting", id: "wall-painting" },
-  { label: "BTL Activities", id: "btl-activities" },
+  { label: "Brand Activation", id: "brand-activation" },
+  { label: "Product Sampling", id: "product-sampling" },
+  { label: "Mall Promotions", id: "mall-promotions" },
+  { label: "Road Shows", id: "road-shows" },
+  { label: "Corporate Events", id: "corporate-events" },
 ];
 
 export default function Footer() {
@@ -19,7 +24,7 @@ export default function Footer() {
             <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-footer-logo" />
           </Link>
           <p className="text-sm leading-relaxed max-w-xs">
-            Outdoor advertising, transit branding and brand activation designed
+            Vehicle branding, retail visibility and brand activation designed
             to move naturally through the real world.
           </p>
           <p className="mt-5 text-xs uppercase tracking-[0.2em] text-[#f1c94c]">
@@ -94,7 +99,7 @@ export default function Footer() {
       <div className="border-t border-white/10 pt-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-white/40">
           <p>&copy; {new Date().getFullYear()} The Brand Advertising. All rights reserved.</p>
-          <p>Outdoor · Transit · Retail · Activation</p>
+          <p>Vehicle Branding · Retail · Sampling · Activation</p>
         </div>
       </div>
     </footer>

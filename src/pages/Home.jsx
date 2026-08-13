@@ -17,14 +17,14 @@ const services = [
   {
     icon: Route,
     number: "01",
-    title: "Transit media",
-    text: "Thoughtful vehicle branding that carries your story naturally through the city.",
+    title: "Vehicle branding",
+    text: "Auto hood, cab, bus and van campaigns that carry your story naturally through the city.",
   },
   {
     icon: Leaf,
     number: "02",
-    title: "Outdoor presence",
-    text: "Clear, memorable outdoor campaigns designed to belong in the places people live.",
+    title: "Retail presence",
+    text: "Clear, memorable retail and wall-painting campaigns designed for the places people live and shop.",
   },
   {
     icon: Sparkles,

@@ -17,6 +17,8 @@ export default function Contact() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     const shouldOpenQuote = new URLSearchParams(location.search).get("quote") === "1";
@@ -37,14 +39,41 @@ export default function Contact() {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`Campaign enquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\n${form.message}`
-    );
-    window.location.href = `mailto:admin@thebrandadvertising.com?subject=${subject}&body=${body}`;
-    setSent(true);
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/admin@thebrandadvertising.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New TBA campaign enquiry from ${form.name}`,
+          _template: "table",
+          _replyto: form.email,
+          Name: form.name,
+          Email: form.email,
+          Phone: form.phone,
+          Service: form.service || "Not specified",
+          Message: form.message,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      setSent(true);
+      setForm({ name: "", email: "", phone: "", service: "", message: "" });
+    } catch {
+      setSubmitError(
+        "We could not send your enquiry right now. Please email admin@thebrandadvertising.com directly."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -68,11 +97,11 @@ export default function Contact() {
               <div className="text-center py-16">
                 <CheckCircle2 className="mx-auto text-brand-red mb-5" size={48} />
                 <h3 className="font-display font-semibold text-2xl mb-2">
-                  Your campaign brief is ready.
+                  Your enquiry has been sent.
                 </h3>
                 <p className="text-charcoal-soft/70 max-w-md mx-auto">
-                  Thank you for telling us about your project. Add TBA&rsquo;s
-                  Your enquiry is ready to send to admin@thebrandadvertising.com.
+                  Thank you for telling us about your project. The TBA team will
+                  review your message and get back to you.
                 </p>
                 <button
                   onClick={() => setSent(false)}
@@ -141,11 +170,16 @@ export default function Contact() {
                     <option value="">Select a service</option>
                     {[
                       "Auto Hood Branding",
-                      "Cab & Fleet Branding",
+                      "Cab Branding",
                       "Bus Branding",
+                      "Van Activation",
                       "Retail Branding",
                       "Wall Painting",
-                      "BTL Activation",
+                      "Brand Activation",
+                      "Product Sampling",
+                      "Mall Promotions",
+                      "Road Shows",
+                      "Corporate Events",
                       "Other",
                     ].map((service) => (
                       <option key={service} value={service}>{service}</option>
@@ -168,11 +202,18 @@ export default function Contact() {
                   />
                 </div>
 
+                {submitError && (
+                  <p role="alert" className="text-sm text-red-700 bg-red-50 rounded-xl px-4 py-3">
+                    {submitError}
+                  </p>
+                )}
+
                 <button
                   type="submit"
+                  disabled={submitting}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-brand-rose to-brand-red text-white font-medium shadow-card hover:brightness-110 transition-all"
                 >
-                  Prepare Enquiry <Send size={16} />
+                  {submitting ? "Sending..." : "Send Enquiry"} <Send size={16} />
                 </button>
               </form>
             )}
@@ -203,7 +244,7 @@ export default function Contact() {
                 </li>
                 <li className="flex gap-4">
                   <Sparkles size={18} className="text-brand-rose shrink-0" />
-                  Transit, retail, outdoor and BTL solutions
+                  Vehicle branding, retail, sampling and activation solutions
                 </li>
                 <li className="flex gap-4">
                   <Mail size={18} className="text-brand-rose shrink-0" />

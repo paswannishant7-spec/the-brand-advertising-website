@@ -25,23 +25,16 @@ const images = [
 
 const serviceImages = {
   "Auto Hood Branding": autoBrandingAd,
-  "Auto Branding": brandMoves,
   "Cab Branding": brandDrift,
-  "Bike Branding": brandStreet,
-  "Commercial Vehicle Branding": billboardCities,
   "Bus Branding": billboardIndiaGate,
   "Van Activation": servicesGrid,
   "Retail Branding": brandMoves,
   "Wall Painting": driveGrowth,
-  "Outdoor Advertising": billboardCities,
-  "BTL Activities": servicesGrid,
   "Brand Activation": driveGrowth,
   "Product Sampling": brandStreet,
   "Mall Promotions": servicesGrid,
   "Road Shows": billboardIndiaGate,
   "Corporate Events": servicesGrid,
-  "Transit Advertising": autoBrandingAd,
-  "Promotional Campaigns": brandMoves,
 };
 
 const services = [
@@ -51,24 +44,9 @@ const services = [
     benefits: ["Maximum daily impressions", "Cost-effective vs static hoardings", "Custom creative per campaign"],
   },
   {
-    title: "Auto Branding",
-    desc: "Full-body auto rickshaw branding covering hood, back panel and side rails for 360-degree visibility.",
-    benefits: ["Covers urban and rural routes", "24x7 brand presence", "Fleet-wide rollout available"],
-  },
-  {
     title: "Cab Branding",
     desc: "Premium cab wraps that put your brand in front of commuters across the city, all day long.",
     benefits: ["High-footfall commercial routes", "Clean, professional finish", "City and inter-city coverage"],
-  },
-  {
-    title: "Bike Branding",
-    desc: "Two-wheeler branding built for agility, reaching narrow lanes and dense residential markets.",
-    benefits: ["Low-cost, high-frequency reach", "Ideal for hyperlocal campaigns", "Quick deployment"],
-  },
-  {
-    title: "Commercial Vehicle Branding",
-    desc: "Vans and trucks branded for long routes, reinforcing recall across highways and delivery corridors.",
-    benefits: ["Wide geographic spread", "Durable, weather-resistant wraps", "Fleet management support"],
   },
   {
     title: "Bus Branding",
@@ -89,16 +67,6 @@ const services = [
     title: "Wall Painting",
     desc: "Hand-painted wall media across high-footfall neighbourhoods for long-term brand presence.",
     benefits: ["Long-lasting visibility", "Hyperlocal targeting", "Distinctive, hand-crafted feel"],
-  },
-  {
-    title: "Outdoor Advertising",
-    desc: "Strategic outdoor media placements designed around real movement and footfall patterns.",
-    benefits: ["Data-informed placement", "Wide format options", "Urban and semi-urban coverage"],
-  },
-  {
-    title: "BTL Activities",
-    desc: "Below-the-line campaigns that engage audiences directly, on the ground, where they live and work.",
-    benefits: ["Direct audience engagement", "Measurable on-ground impact", "Custom activation formats"],
   },
   {
     title: "Brand Activation",
@@ -124,16 +92,6 @@ const services = [
     title: "Corporate Events",
     desc: "End-to-end support for corporate branding at conferences, launches and company events.",
     benefits: ["Professional execution", "Custom branding collateral", "On-site coordination"],
-  },
-  {
-    title: "Transit Advertising",
-    desc: "Advertising across the full transit ecosystem, from autos and cabs to buses and vans.",
-    benefits: ["Multi-format transit coverage", "Consistent city-wide presence", "Scalable across fleets"],
-  },
-  {
-    title: "Promotional Campaigns",
-    desc: "Integrated promotional campaigns combining outdoor, retail and activation for maximum reach.",
-    benefits: ["Multi-channel coordination", "Unified campaign strategy", "End-to-end management"],
   },
 ];
 
