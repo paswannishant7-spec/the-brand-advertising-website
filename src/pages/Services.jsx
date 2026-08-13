@@ -3,38 +3,30 @@ import { Link } from "react-router-dom";
 import { Check, ArrowUpRight } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 
-import autoBrandingAd from "../assets/tba/auto-brand-city.png";
-import brandMoves from "../assets/tba/brand-moves.png";
-import billboardCities from "../assets/tba/traffic-branding.png";
-import driveGrowth from "../assets/tba/moves-with-city.png";
-import brandDrift from "../assets/tba/cost-vs-impact.png";
-import brandStreet from "../assets/tba/auto-hood-route.png";
-import billboardIndiaGate from "../assets/tba/auto-hood-benefits.png";
-import servicesGrid from "../assets/tba/auto-brand-city.png";
-
-const images = [
-  autoBrandingAd,
-  brandMoves,
-  billboardCities,
-  driveGrowth,
-  brandDrift,
-  brandStreet,
-  billboardIndiaGate,
-  servicesGrid,
-];
+import autoHoodBranding from "../assets/services/auto-hood-branding.jpg";
+import cabBranding from "../assets/services/cab-branding.jpg";
+import busBranding from "../assets/services/bus-branding.jpg";
+import vanActivation from "../assets/services/van-activation.jpg";
+import retailBranding from "../assets/services/retail-branding.jpg";
+import wallPainting from "../assets/services/wall-painting.jpg";
+import brandActivation from "../assets/services/brand-activation.jpg";
+import productSampling from "../assets/services/product-sampling.jpg";
+import mallPromotions from "../assets/services/mall-promotions.jpg";
+import roadShows from "../assets/services/road-shows.jpg";
+import corporateEvents from "../assets/services/corporate-events.jpg";
 
 const serviceImages = {
-  "Auto Hood Branding": autoBrandingAd,
-  "Cab Branding": brandDrift,
-  "Bus Branding": billboardIndiaGate,
-  "Van Activation": servicesGrid,
-  "Retail Branding": brandMoves,
-  "Wall Painting": driveGrowth,
-  "Brand Activation": driveGrowth,
-  "Product Sampling": brandStreet,
-  "Mall Promotions": servicesGrid,
-  "Road Shows": billboardIndiaGate,
-  "Corporate Events": servicesGrid,
+  "Auto Hood Branding": autoHoodBranding,
+  "Cab Branding": cabBranding,
+  "Bus Branding": busBranding,
+  "Van Activation": vanActivation,
+  "Retail Branding": retailBranding,
+  "Wall Painting": wallPainting,
+  "Brand Activation": brandActivation,
+  "Product Sampling": productSampling,
+  "Mall Promotions": mallPromotions,
+  "Road Shows": roadShows,
+  "Corporate Events": corporateEvents,
 };
 
 const services = [
@@ -118,7 +110,7 @@ export default function Services() {
             >
               <div className="rounded-2xl overflow-hidden aspect-[16/10] shadow-card">
                 <img
-                  src={serviceImages[s.title] || images[i % images.length]}
+                  src={serviceImages[s.title]}
                   alt={s.title}
                   className="w-full h-full object-cover"
                 />
