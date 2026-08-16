@@ -1,21 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Clock, Send, CheckCircle2, Route, Sparkles } from "lucide-react";
+import { MapPin, Mail, Clock, Send, CheckCircle2, Route, Sparkles, LoaderCircle } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 import campaignOne from "../assets/tba/auto-hood-route.png";
 import campaignTwo from "../assets/tba/auto-hood-benefits.png";
 
+const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/admin@thebrandadvertising.com";
+const FORM_SOURCE_URL = "https://paswannishant7-spec.github.io/the-brand-advertising-website/#/contact";
+const EMPTY_FORM = {
+  name: "",
+  email: "",
+  phone: "",
+  service: "",
+  message: "",
+};
+
 export default function Contact() {
   const location = useLocation();
   const nameInputRef = useRef(null);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
+  const [form, setForm] = useState(EMPTY_FORM);
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -41,37 +45,60 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (submitting) return;
+
+    const requiredValues = [form.name, form.email, form.phone, form.message];
+    if (requiredValues.some((value) => !value.trim())) {
+      setSubmitError("Please complete all required fields before sending your enquiry.");
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) {
+      setSubmitError("Please enter a valid email address.");
+      return;
+    }
+
     setSubmitting(true);
     setSubmitError("");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/admin@thebrandadvertising.com", {
+      const response = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
+        signal: controller.signal,
         body: JSON.stringify({
-          _subject: `New TBA campaign enquiry from ${form.name}`,
+          _subject: `New TBA campaign enquiry from ${form.name.trim()}`,
           _template: "table",
-          _replyto: form.email,
-          Name: form.name,
-          Email: form.email,
-          Phone: form.phone,
+          _replyto: form.email.trim(),
+          _honey: "",
+          _url: FORM_SOURCE_URL,
+          Name: form.name.trim(),
+          Email: form.email.trim(),
+          Phone: form.phone.trim(),
           Service: form.service || "Not specified",
-          Message: form.message,
+          Message: form.message.trim(),
         }),
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      const result = await response.json().catch(() => null);
+      const accepted = result?.success === true || result?.success === "true";
+      if (!response.ok || !accepted) throw new Error(result?.message || "Submission failed");
 
       setSent(true);
-      setForm({ name: "", email: "", phone: "", service: "", message: "" });
-    } catch {
+      setForm(EMPTY_FORM);
+    } catch (error) {
       setSubmitError(
-        "We could not send your enquiry right now. Please email admin@thebrandadvertising.com directly."
+        error?.name === "AbortError"
+          ? "The request took too long. Please check your connection and try again."
+          : "We could not send your enquiry right now. Please try again or email admin@thebrandadvertising.com directly."
       );
     } finally {
+      window.clearTimeout(timeout);
       setSubmitting(false);
     }
   };
@@ -111,7 +138,7 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" aria-busy={submitting}>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
@@ -202,18 +229,24 @@ export default function Contact() {
                   />
                 </div>
 
-                {submitError && (
-                  <p role="alert" className="text-sm text-red-700 bg-red-50 rounded-xl px-4 py-3">
-                    {submitError}
-                  </p>
-                )}
+                <div aria-live="polite" aria-atomic="true">
+                  {submitError && (
+                    <p role="alert" className="text-sm text-red-700 bg-red-50 rounded-xl px-4 py-3">
+                      {submitError}
+                    </p>
+                  )}
+                </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-brand-rose to-brand-red text-white font-medium shadow-card hover:brightness-110 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-brand-rose to-brand-red text-white font-medium shadow-card hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
                 >
-                  {submitting ? "Sending..." : "Send Enquiry"} <Send size={16} />
+                  {submitting ? (
+                    <><LoaderCircle size={16} className="animate-spin" /> Sending...</>
+                  ) : (
+                    <>Send Enquiry <Send size={16} /></>
+                  )}
                 </button>
               </form>
             )}
