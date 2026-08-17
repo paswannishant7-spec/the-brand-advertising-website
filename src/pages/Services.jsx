@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { Check, ArrowUpRight } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 
-import autoHoodBranding from "../assets/services/auto-hood-branding.jpg";
-import cabBranding from "../assets/services/cab-branding.jpg";
-import busBranding from "../assets/services/bus-branding.jpg";
-import vanActivation from "../assets/services/van-activation.jpg";
-import retailBranding from "../assets/services/retail-branding.jpg";
-import wallPainting from "../assets/services/wall-painting.jpg";
-import brandActivation from "../assets/services/brand-activation.jpg";
-import productSampling from "../assets/services/product-sampling.jpg";
-import mallPromotions from "../assets/services/mall-promotions.jpg";
-import roadShows from "../assets/services/road-shows.jpg";
-import corporateEvents from "../assets/services/corporate-events.jpg";
+import autoHoodBranding from "../assets/services/auto-hood-branding.webp";
+import cabBranding from "../assets/services/cab-branding.webp";
+import busBranding from "../assets/services/bus-branding.webp";
+import vanActivation from "../assets/services/van-activation.webp";
+import retailBranding from "../assets/services/retail-branding.webp";
+import wallPainting from "../assets/services/wall-painting.webp";
+import brandActivation from "../assets/services/brand-activation.webp";
+import productSampling from "../assets/services/product-sampling.webp";
+import mallPromotions from "../assets/services/mall-promotions.webp";
+import roadShows from "../assets/services/road-shows.webp";
+import corporateEvents from "../assets/services/corporate-events.webp";
 
 const serviceImages = {
   "Auto Hood Branding": autoHoodBranding,
@@ -90,7 +90,7 @@ const services = [
 export default function Services() {
   return (
     <div>
-      <RelaxingHero eyebrow="Our services" title="Every service, one goal: visibility that moves." video="https://www.pexels.com/download/video/37522241/" />
+      <RelaxingHero eyebrow="Our services" title="Every service, one goal: visibility that moves." video={`${import.meta.env.BASE_URL}services-background.mp4`} />
 
       <section className="bg-cream">
         {services.map((s, i) => (
@@ -112,6 +112,8 @@ export default function Services() {
                 <img
                   src={serviceImages[s.title]}
                   alt={s.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

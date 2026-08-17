@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Leaf, Route, Sparkles, Wind } from "lucide-react";
 import BrandOrbit from "../components/BrandOrbit";
 import CountUp from "../components/CountUp";
+import useVideoPlayback from "../hooks/useVideoPlayback";
 
-import forestPoster from "../assets/tba/auto-brand-city.png";
+import forestPoster from "../assets/tba/auto-brand-city.webp";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -43,23 +44,26 @@ const banners = [
 ];
 
 export default function Home() {
+  const videoRef = useVideoPlayback();
+
   return (
     <main className="nature-home">
       <section className="nature-hero">
-        <img className="nature-video nature-video-poster" src={forestPoster} alt="" aria-hidden="true" />
+        <img className="nature-video nature-video-poster" src={forestPoster} alt="" aria-hidden="true" decoding="async" fetchPriority="high" />
         <video
+          ref={videoRef}
           className="nature-video"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           disablePictureInPicture
           poster={forestPoster}
           aria-hidden="true"
           onLoadedData={(event) => event.currentTarget.classList.add("video-ready")}
         >
-          <source src="https://www.pexels.com/download/video/36912560/" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}home-background.mp4`} type="video/mp4" />
         </video>
         <div className="nature-veil" />
         <div className="nature-light" />
@@ -221,7 +225,7 @@ export default function Home() {
           transition={{ duration: 1, ease }}
           className="nature-shell nature-cta-inner"
         >
-          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-cta-logo" />
+          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-cta-logo" loading="lazy" decoding="async" />
           <p>Have a story worth moving?</p>
           <h2>Let&rsquo;s give it<br /><em>somewhere to go.</em></h2>
           <a

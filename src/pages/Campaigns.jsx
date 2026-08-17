@@ -2,12 +2,12 @@
 import { CalendarDays, Gift, MapPin, Sparkles, Users } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 
-import jodhpur1 from "../assets/campaigns/events/jodhpur-activation-1.png";
-import jodhpur2 from "../assets/campaigns/events/jodhpur-activation-2.png";
-import jodhpur3 from "../assets/campaigns/events/jodhpur-activation-3.png";
-import ajmer1 from "../assets/campaigns/events/ajmer-launch-1.png";
-import ajmer2 from "../assets/campaigns/events/ajmer-launch-2.png";
-import ajmer3 from "../assets/campaigns/events/ajmer-launch-3.png";
+import jodhpur1 from "../assets/campaigns/events/jodhpur-activation-1.webp";
+import jodhpur2 from "../assets/campaigns/events/jodhpur-activation-2.webp";
+import jodhpur3 from "../assets/campaigns/events/jodhpur-activation-3.webp";
+import ajmer1 from "../assets/campaigns/events/ajmer-launch-1.webp";
+import ajmer2 from "../assets/campaigns/events/ajmer-launch-2.webp";
+import ajmer3 from "../assets/campaigns/events/ajmer-launch-3.webp";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -30,7 +30,7 @@ function CampaignGallery({ images, city }) {
           transition={{ duration: 0.75, delay: index * 0.1, ease }}
           className={`campaign-photo campaign-photo-${index + 1}`}
         >
-          <img src={image} alt={`${city} IndianOil BTL campaign activity ${index + 1}`} />
+          <img src={image} alt={`${city} IndianOil BTL campaign activity ${index + 1}`} loading="lazy" decoding="async" />
         </motion.figure>
       ))}
     </div>

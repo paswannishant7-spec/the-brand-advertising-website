@@ -4,14 +4,14 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import RelaxingHero from "../components/RelaxingHero";
 
-import autoBrandingAd from "../assets/tba/auto-brand-city.png";
-import brandMoves from "../assets/tba/brand-moves.png";
-import billboardCities from "../assets/tba/traffic-branding.png";
-import driveGrowth from "../assets/tba/moves-with-city.png";
-import brandDrift from "../assets/tba/cost-vs-impact.png";
-import brandStreet from "../assets/tba/auto-hood-route.png";
-import billboardIndiaGate from "../assets/tba/auto-hood-benefits.png";
-import servicesGrid from "../assets/tba/auto-brand-city.png";
+import autoBrandingAd from "../assets/tba/auto-brand-city.webp";
+import brandMoves from "../assets/tba/brand-moves.webp";
+import billboardCities from "../assets/tba/traffic-branding.webp";
+import driveGrowth from "../assets/tba/moves-with-city.webp";
+import brandDrift from "../assets/tba/cost-vs-impact.webp";
+import brandStreet from "../assets/tba/auto-hood-route.webp";
+import billboardIndiaGate from "../assets/tba/auto-hood-benefits.webp";
+import servicesGrid from "../assets/tba/auto-brand-city.webp";
 
 const gallery = [
   { img: autoBrandingAd, title: "Your Brand on Every Road" },
@@ -98,7 +98,7 @@ export default function Work() {
 
   return (
     <div>
-      <RelaxingHero eyebrow="Our work" title="Campaigns that move through the world." video="https://www.pexels.com/download/video/37357599/" />
+      <RelaxingHero eyebrow="Our work" title="Campaigns that move through the world." video={`${import.meta.env.BASE_URL}work-background.mp4`} />
 
       {/* CLIENT NAMES */}
       <section className="py-16 bg-cream">
@@ -134,6 +134,8 @@ export default function Work() {
                 <img
                   src={g.img}
                   alt={g.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
@@ -254,7 +256,7 @@ export default function Work() {
               className="max-w-2xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={active.img} alt={active.title} className="w-full rounded-xl shadow-soft" />
+              <img src={active.img} alt={active.title} className="w-full rounded-xl shadow-soft" decoding="async" />
               <p className="text-white text-center mt-4 font-display">{active.title}</p>
             </motion.div>
           </motion.div>

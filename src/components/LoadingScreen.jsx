@@ -23,7 +23,7 @@ export default function LoadingScreen({ show, route }) {
   }, [route, current.offset]);
   const scene = useMemo(() => ++sceneTurn, [route]);
   const particles = useMemo(
-    () => Array.from({ length: 18 }, (_, index) => ({
+    () => Array.from({ length: 10 }, (_, index) => ({
       id: `${scene}-${index}`,
       x: (index * 47 + scene * 31) % 100,
       y: (index * 71 + scene * 19) % 100,

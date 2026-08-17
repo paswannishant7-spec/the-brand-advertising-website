@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Target, Eye, ArrowUpRight } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import RelaxingHero from "../components/RelaxingHero";
-import dimcyAggarwal from "../assets/tba/dimcy-aggarwal-founder.png";
-import campaignOne from "../assets/tba/auto-brand-city.png";
-import campaignTwo from "../assets/tba/moves-with-city.png";
+import dimcyAggarwal from "../assets/tba/dimcy-aggarwal-founder.webp";
+import campaignOne from "../assets/tba/auto-brand-city.webp";
+import campaignTwo from "../assets/tba/moves-with-city.webp";
 
 const process = [
   { step: "Discover", desc: "Understand the brand and campaign goals." },
@@ -22,7 +22,7 @@ export default function About() {
       <RelaxingHero
         eyebrow="About TBA"
         title="Ideas should move with people."
-        video="https://www.pexels.com/download/video/31506652/"
+        video={`${import.meta.env.BASE_URL}about-background.mp4`}
       />
 
       <section className="py-24 bg-cream">
@@ -47,7 +47,7 @@ export default function About() {
             transition={{ duration: 0.9 }}
             className="rounded-2xl overflow-hidden shadow-soft aspect-[4/5]"
           >
-            <img src={campaignOne} alt="TBA outdoor advertising campaign" className="w-full h-full object-cover" />
+            <img src={campaignOne} alt="TBA outdoor advertising campaign" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </section>
@@ -66,6 +66,8 @@ export default function About() {
                 <img
                   src={dimcyAggarwal}
                   alt="Dimcy Aggarwal, Founder of The Brand Advertising"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full rounded-full object-cover object-top border-4 border-white"
                 />
               </div>
@@ -194,6 +196,8 @@ export default function About() {
                 <img
                   src={image}
                   alt="The Brand Advertising team and workspace"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </motion.div>

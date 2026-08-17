@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Clock, Send, CheckCircle2, Route, Sparkles, LoaderCircle } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
-import campaignOne from "../assets/tba/auto-hood-route.png";
-import campaignTwo from "../assets/tba/auto-hood-benefits.png";
+import campaignOne from "../assets/tba/auto-hood-route.webp";
+import campaignTwo from "../assets/tba/auto-hood-benefits.webp";
 
 const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/admin@thebrandadvertising.in";
 const FORM_SOURCE_URL = "https://paswannishant7-spec.github.io/the-brand-advertising-website/#/contact";
@@ -108,7 +108,7 @@ export default function Contact() {
       <RelaxingHero
         eyebrow="Contact TBA"
         title="Let’s get your brand moving."
-        video="https://www.pexels.com/download/video/32521689/"
+        video={`${import.meta.env.BASE_URL}contact-background.mp4`}
       />
 
       <section id="quote-form" className="py-20 bg-cream scroll-mt-24">
@@ -293,8 +293,8 @@ export default function Contact() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <img src={campaignOne} alt="TBA auto hood branding campaign" className="rounded-2xl aspect-square object-cover" />
-              <img src={campaignTwo} alt="TBA auto branding benefits" className="rounded-2xl aspect-square object-cover" />
+              <img src={campaignOne} alt="TBA auto hood branding campaign" className="rounded-2xl aspect-square object-cover" loading="lazy" decoding="async" />
+              <img src={campaignTwo} alt="TBA auto branding benefits" className="rounded-2xl aspect-square object-cover" loading="lazy" decoding="async" />
             </div>
           </motion.div>
         </div>

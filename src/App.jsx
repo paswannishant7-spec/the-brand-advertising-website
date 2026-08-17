@@ -14,14 +14,17 @@ import SocialButtons from "./components/SocialButtons";
 import MotionExperience from "./components/MotionExperience";
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(
+    () => !window.sessionStorage.getItem("tba-intro-seen")
+  );
   const location = useLocation();
 
   useEffect(() => {
-    setLoading(true);
-    const t = setTimeout(() => setLoading(false), 1800);
+    if (!loading) return undefined;
+    window.sessionStorage.setItem("tba-intro-seen", "true");
+    const t = setTimeout(() => setLoading(false), 950);
     return () => clearTimeout(t);
-  }, [location.pathname]);
+  }, [loading]);
 
   return (
     <div className="min-h-screen bg-cream">
