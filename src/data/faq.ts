@@ -37,6 +37,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How can I get a quote or start a conversation?",
     answer:
-      "Reach out through the Contact page or email admin@thebrandadvertising.com with a brief description of your campaign goals, and our team will follow up.",
+      "Reach out through the Contact page or email admin@thebrandadvertising.in with a brief description of your campaign goals, and our team will follow up.",
   },
 ];

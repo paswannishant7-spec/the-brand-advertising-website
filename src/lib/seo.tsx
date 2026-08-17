@@ -44,7 +44,7 @@ export function OrganizationSchema() {
     name: SITE_NAME,
     alternateName: "TBA",
     url: SITE_URL,
-    email: "admin@thebrandadvertising.com",
+    email: "admin@thebrandadvertising.in",
     slogan: "Ideas That Move Brands",
     description:
       "Outdoor advertising, transit media, vehicle branding, retail branding, and brand activation agency.",

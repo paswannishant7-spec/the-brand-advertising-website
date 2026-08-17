@@ -84,8 +84,8 @@ export default function Footer() {
             </li>
             <li className="flex gap-3">
               <Mail size={18} className="shrink-0 text-[#d3a51f]" />
-              <a href="mailto:admin@thebrandadvertising.com" className="hover:text-white break-all">
-                admin@thebrandadvertising.com
+              <a href="mailto:admin@thebrandadvertising.in" className="hover:text-white break-all">
+                admin@thebrandadvertising.in
               </a>
             </li>
             <li className="flex gap-3">

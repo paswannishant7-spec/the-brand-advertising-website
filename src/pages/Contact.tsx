@@ -37,7 +37,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "\u2014"}\nService: ${data.service}\n\n${data.message}`
     );
-    window.location.href = `mailto:admin@thebrandadvertising.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:admin@thebrandadvertising.in?subject=${subject}&body=${body}`;
     setSubmitted(true);
     reset();
   };
@@ -46,7 +46,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contact"
-        description="Start a conversation with The Brand Advertising about your next outdoor, transit, retail, or activation campaign. Email admin@thebrandadvertising.com."
+        description="Start a conversation with The Brand Advertising about your next outdoor, transit, retail, or activation campaign. Email admin@thebrandadvertising.in."
         path="/contact"
       />
 
@@ -67,10 +67,10 @@ export default function Contact() {
           <Reveal>
             <span className="eyebrow">Get in touch</span>
             <a
-              href="mailto:admin@thebrandadvertising.com"
+              href="mailto:admin@thebrandadvertising.in"
               className="mt-4 flex items-center gap-3 font-display text-xl font-bold text-ink hover:text-route transition-colors"
             >
-              <Mail size={22} className="text-signal" /> admin@thebrandadvertising.com
+              <Mail size={22} className="text-signal" /> admin@thebrandadvertising.in
             </a>
 
             <dl className="mt-10 space-y-6 border-t border-ink/10 pt-8 text-sm">
@@ -95,7 +95,7 @@ export default function Contact() {
                 <CheckCircle2 className="text-signal" size={32} />
                 <h2 className="font-display text-2xl font-bold text-paper">Your email client is opening</h2>
                 <p className="text-sm leading-relaxed text-paper/60">
-                  We've prepared your message for admin@thebrandadvertising.com. If nothing opened,
+                  We've prepared your message for admin@thebrandadvertising.in. If nothing opened,
                   please email us directly.
                 </p>
                 <Button variant="signal" size="sm" onClick={() => setSubmitted(false)}>

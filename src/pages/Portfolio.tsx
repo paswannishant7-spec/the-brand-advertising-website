@@ -63,7 +63,7 @@ export default function Portfolio() {
             <span className="font-mono text-xs uppercase tracking-widest2 text-signal">{active.category}</span>
             <p className="mt-4 leading-relaxed">{active.summary}</p>
             <a
-              href="mailto:admin@thebrandadvertising.com"
+              href="mailto:admin@thebrandadvertising.in"
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-signal hover:underline"
             >
               Ask about this campaign type <ArrowUpRight size={14} />

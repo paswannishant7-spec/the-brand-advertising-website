@@ -6,7 +6,7 @@ import RelaxingHero from "../components/RelaxingHero";
 import campaignOne from "../assets/tba/auto-hood-route.png";
 import campaignTwo from "../assets/tba/auto-hood-benefits.png";
 
-const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/admin@thebrandadvertising.com";
+const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/admin@thebrandadvertising.in";
 const FORM_SOURCE_URL = "https://paswannishant7-spec.github.io/the-brand-advertising-website/#/contact";
 const EMPTY_FORM = {
   name: "",
@@ -95,7 +95,7 @@ export default function Contact() {
       setSubmitError(
         error?.name === "AbortError"
           ? "The request took too long. Please check your connection and try again."
-          : "We could not send your enquiry right now. Please try again or email admin@thebrandadvertising.com directly."
+          : "We could not send your enquiry right now. Please try again or email admin@thebrandadvertising.in directly."
       );
     } finally {
       window.clearTimeout(timeout);
@@ -281,8 +281,8 @@ export default function Contact() {
                 </li>
                 <li className="flex gap-4">
                   <Mail size={18} className="text-brand-rose shrink-0" />
-                  <a href="mailto:admin@thebrandadvertising.com" className="hover:text-white break-all">
-                    admin@thebrandadvertising.com
+                  <a href="mailto:admin@thebrandadvertising.in" className="hover:text-white break-all">
+                    admin@thebrandadvertising.in
                   </a>
                 </li>
                 <li className="flex gap-4">

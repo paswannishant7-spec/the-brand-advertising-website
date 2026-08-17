@@ -18,10 +18,10 @@ export function Footer() {
               Ideas That Move Brands. Campaigns planned with intent and executed with care.
             </p>
             <a
-              href="mailto:admin@thebrandadvertising.com"
+              href="mailto:admin@thebrandadvertising.in"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-signal hover:underline"
             >
-              <Mail size={16} /> admin@thebrandadvertising.com
+              <Mail size={16} /> admin@thebrandadvertising.in
             </a>
           </div>
 

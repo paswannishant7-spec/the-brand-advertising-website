@@ -225,11 +225,11 @@ export default function Home() {
           <p>Have a story worth moving?</p>
           <h2>Let&rsquo;s give it<br /><em>somewhere to go.</em></h2>
           <a
-            href="mailto:admin@thebrandadvertising.com?subject=Campaign%20Enquiry%20for%20TBA"
+            href="mailto:admin@thebrandadvertising.in?subject=Campaign%20Enquiry%20for%20TBA"
             className="nature-button nature-button-dark"
             aria-label="Email The Brand Advertising"
           >
-            admin@thebrandadvertising.com <ArrowRight size={16} />
+            admin@thebrandadvertising.in <ArrowRight size={16} />
           </a>
         </motion.div>
       </section>
