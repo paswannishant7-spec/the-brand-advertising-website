@@ -15,6 +15,14 @@ const services = [
   { label: "Corporate Events", id: "corporate-events" },
 ];
 
+const quickLinks = [
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Our Campaigns", to: "/campaigns" },
+  { label: "Contact Us", to: "/contact" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#070707] text-white/65 pt-20 pb-8">
@@ -37,13 +45,13 @@ export default function Footer() {
             Quick Links
           </h4>
           <ul className="space-y-3 text-sm">
-            {["Home", "About", "Services", "Work", "Campaigns", "Contact"].map((label) => (
-              <li key={label}>
+            {quickLinks.map((link) => (
+              <li key={link.to}>
                 <Link
-                  to={label === "Home" ? "/" : `/${label.toLowerCase()}`}
+                  to={link.to}
                   className="hover:text-[#f1c94c] transition-colors"
                 >
-                  {label}
+                  {link.label}
                 </Link>
               </li>
             ))}

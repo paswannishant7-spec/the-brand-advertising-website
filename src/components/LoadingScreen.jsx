@@ -5,9 +5,8 @@ const loaders = {
   "/": { label: "Setting ideas in motion", className: "loader-home", offset: 0 },
   "/about": { label: "Unfolding our story", className: "loader-about", offset: 1 },
   "/services": { label: "Preparing possibilities", className: "loader-services", offset: 2 },
-  "/work": { label: "Curating our best work", className: "loader-work", offset: 3 },
-  "/campaigns": { label: "Gathering campaign moments", className: "loader-campaigns", offset: 4 },
-  "/contact": { label: "Opening a conversation", className: "loader-contact", offset: 5 },
+  "/campaigns": { label: "Gathering campaign moments", className: "loader-campaigns", offset: 3 },
+  "/contact": { label: "Opening a conversation", className: "loader-contact", offset: 4 },
 };
 
 const shapes = ["rings", "leaf", "lines", "frames", "pulse", "dots"];

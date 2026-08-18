@@ -4,11 +4,10 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  { to: "/about", label: "About Us" },
   { to: "/services", label: "Services" },
-  { to: "/work", label: "Work" },
-  { to: "/campaigns", label: "Campaigns" },
-  { to: "/contact", label: "Contact" },
+  { to: "/campaigns", label: "Our Campaigns" },
+  { to: "/contact", label: "Contact Us" },
 ];
 
 export default function Navbar() {

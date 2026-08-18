@@ -101,8 +101,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 1 }}
             className="nature-actions"
           >
-            <Link to="/work" className="nature-button nature-button-light">
-              See our work <ArrowRight size={16} />
+            <Link to="/campaigns" className="nature-button nature-button-light">
+              See our campaigns <ArrowRight size={16} />
             </Link>
             <Link to="/contact" className="nature-text-link">
               Start a conversation

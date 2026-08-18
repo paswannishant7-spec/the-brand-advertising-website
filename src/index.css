@@ -359,7 +359,6 @@ h1, h2, h3, h4 {
 .loader-home { background: radial-gradient(circle at 65% 20%, #554515, #070707 60%); }
 .loader-about { background: linear-gradient(145deg, #8a6500, #16130b); }
 .loader-services { background: linear-gradient(160deg, #070707, #3e3210); }
-.loader-work { background: radial-gradient(circle at 30% 70%, #756021, #080808 65%); }
 .loader-campaigns { background: radial-gradient(circle at 70% 25%, #d3a51f, #111 62%); }
 .loader-contact { background: linear-gradient(135deg, #111, #8a6500); }
 
@@ -1240,6 +1239,10 @@ footer {
 
 .social-facebook {
   background: linear-gradient(135deg, #1877f2, #0d47a1);
+}
+
+.social-whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c4a);
 }
 
 @media (max-width: 640px) {

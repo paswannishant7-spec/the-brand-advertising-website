@@ -24,6 +24,14 @@ function FacebookIcon() {
   );
 }
 
+function WhatsAppIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2.2 22l5.2-1.4A9.9 9.9 0 1 0 12 2Zm0 17.8c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.3-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-3.1-2.7c-.2-.3 0-.4.1-.5l.5-.6c.1-.2.1-.3.2-.5 0-.1 0-.3-.1-.4l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z" />
+    </svg>
+  );
+}
+
 const socialLinks = [
   {
     label: "Follow TBA on Instagram",
@@ -45,6 +53,13 @@ const socialLinks = [
     className: "social-facebook",
     name: "Facebook",
     Icon: FacebookIcon,
+  },
+  {
+    label: "Open WhatsApp",
+    href: "https://www.whatsapp.com/",
+    className: "social-whatsapp",
+    name: "WhatsApp",
+    Icon: WhatsAppIcon,
   },
 ];
 
