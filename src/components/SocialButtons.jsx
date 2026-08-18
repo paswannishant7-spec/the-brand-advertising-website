@@ -55,8 +55,8 @@ const socialLinks = [
     Icon: FacebookIcon,
   },
   {
-    label: "Open WhatsApp",
-    href: "https://www.whatsapp.com/",
+    label: "Chat with TBA on WhatsApp",
+    href: "https://wa.me/919873593917",
     className: "social-whatsapp",
     name: "WhatsApp",
     Icon: WhatsAppIcon,

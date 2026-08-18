@@ -100,4 +100,4 @@ For Hostinger or another static host:
 - LinkedIn: [Dimcy Aggarwal](https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/)
 - Facebook: [The Brand Advertising](https://www.facebook.com/profile.php?id=61584311907761)
 
-No phone number or WhatsApp number is published. The floating WhatsApp icon is intentionally informational until the client supplies an approved number.
+The floating WhatsApp button opens a conversation with the approved business number, `+91 98735 93917`. The number is linked without being displayed inside the floating button.
