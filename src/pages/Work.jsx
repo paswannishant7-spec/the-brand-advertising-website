@@ -4,24 +4,24 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import RelaxingHero from "../components/RelaxingHero";
 
-import autoBrandingAd from "../assets/tba/auto-brand-city.webp";
-import brandMoves from "../assets/tba/brand-moves.webp";
-import billboardCities from "../assets/tba/traffic-branding.webp";
-import driveGrowth from "../assets/tba/moves-with-city.webp";
-import brandDrift from "../assets/tba/cost-vs-impact.webp";
-import brandStreet from "../assets/tba/auto-hood-route.webp";
-import billboardIndiaGate from "../assets/tba/auto-hood-benefits.webp";
-import servicesGrid from "../assets/tba/auto-brand-city.webp";
+import autoHoodBranding from "../assets/services/auto-hood-branding.webp";
+import cabBranding from "../assets/services/cab-branding.webp";
+import busBranding from "../assets/services/bus-branding.webp";
+import vanActivation from "../assets/services/van-activation.webp";
+import retailBranding from "../assets/services/retail-branding.webp";
+import wallPainting from "../assets/services/wall-painting.webp";
+import brandActivation from "../assets/services/brand-activation.webp";
+import roadShows from "../assets/services/road-shows.webp";
 
 const gallery = [
-  { img: autoBrandingAd, title: "Your Brand on Every Road" },
-  { img: brandMoves, title: "Brand That Moves" },
-  { img: billboardCities, title: "Traffic Branding" },
-  { img: driveGrowth, title: "Move With the City" },
-  { img: brandDrift, title: "Cost vs Impact" },
-  { img: brandStreet, title: "Route-Wide Promotion" },
-  { img: billboardIndiaGate, title: "Auto Hood Branding Benefits" },
-  { img: servicesGrid, title: "Local Reach, Big Impact" },
+  { img: cabBranding, title: "Your Brand on Every Road" },
+  { img: vanActivation, title: "Brand That Moves" },
+  { img: busBranding, title: "Traffic Branding" },
+  { img: roadShows, title: "Move With the City" },
+  { img: wallPainting, title: "Cost vs Impact" },
+  { img: brandActivation, title: "Route-Wide Promotion" },
+  { img: autoHoodBranding, title: "Auto Hood Branding Benefits" },
+  { img: retailBranding, title: "Local Reach, Big Impact" },
 ];
 
 const clientNames = ["Hero", "IndianOil", "Wagh Bakri", "Campus", "TVS"];
