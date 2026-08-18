@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.thebrandadvertising.com/sitemap.xml
+Sitemap: https://thebrandadvertising.github.io/the-brand-advertising-website/sitemap.xml

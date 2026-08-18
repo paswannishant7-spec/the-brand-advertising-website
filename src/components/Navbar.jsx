@@ -64,12 +64,12 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#/contact?quote=1"
+          <Link
+            to="/contact?quote=1"
             className="px-5 py-2.5 rounded-full bg-[#f1c94c] text-black text-sm font-medium shadow-card hover:bg-white transition-all"
           >
             Get a Quote
-          </a>
+          </Link>
         </div>
 
         <button

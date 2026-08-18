@@ -38,6 +38,7 @@ export default function App() {
         <Route path="/work" element={<Navigate to="/campaigns" replace />} />
         <Route path="/campaigns" element={<Campaigns />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
       <SocialButtons />

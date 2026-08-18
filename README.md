@@ -1,64 +1,103 @@
 # The Brand Advertising — Website
 
-Production-ready frontend for The Brand Advertising (TBA), built with React 19, Vite, TypeScript, and Tailwind CSS.
+Official marketing website for **The Brand Advertising (TBA)**, an India-focused advertising agency specialising in vehicle branding, retail visibility and on-ground brand activation.
 
-## Getting started
+## Live website
+
+[https://thebrandadvertising.github.io/the-brand-advertising-website/](https://thebrandadvertising.github.io/the-brand-advertising-website/)
+
+The site currently uses hash-based routes so it works reliably on GitHub Pages.
+
+## Technology
+
+- React 19
+- Vite 8
+- React Router
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+- Oxlint
+
+The project is a frontend-only website. It does not require a database or expose any email credentials.
+
+## Pages
+
+- Home
+- About Us
+- Services
+- Our Campaigns, including five client stories
+- Contact Us
+
+The former `/work` route redirects visitors to `/campaigns` so old shared links continue to work.
+
+## Local development
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the local website:
+
+```bash
 npm run dev
 ```
 
-> If `npm install` reports peer dependency conflicts (some libraries are still catching up to React 19), rerun with `npm install --legacy-peer-deps`.
-
-Build for production:
+Create a production build:
 
 ```bash
 npm run build
+```
+
+Preview the production build:
+
+```bash
 npm run preview
 ```
 
-## Stack
+Check the code:
 
-React 19 · Vite · TypeScript · Tailwind CSS · shadcn/ui primitives (Radix UI) · React Router DOM · Framer Motion · GSAP · Lenis · Lucide React · Swiper.js · React Hook Form + Zod · React Helmet Async
-
-This is a frontend-only project — no backend, CMS, or database. The contact form opens the visitor's email client (`mailto:`) as a working fallback; wire it to a form-handling service or backend endpoint before launch if you need submissions logged.
-
-## Content that still needs the client
-
-Several fields are intentionally left as placeholders and marked in the code and UI:
-
-- Business address, phone, and WhatsApp number (footer, Contact page)
-- Social media links
-- Company registration details, founding year
-- Team size, awards, experience statistics
-- Client logos (`src/data/clients.ts`)
-- Testimonials (`src/data/clients.ts`)
-- Case studies / portfolio photos and results (`src/data/portfolio.ts`)
-- Gallery photography (`src/pages/Gallery.tsx`)
-
-Search the codebase for "placeholder" and "to be confirmed" to find every instance.
-
-## Project structure
-
-```
-src/
-  components/
-    layout/    Navbar, Footer, LoadingScreen, BackToTop, ScrollToTop
-    ui/        Button, Card, Modal, Carousel, Counter, Reveal, SectionHeading, Container
-    sections/  Hero, AboutPreview, ServicesGrid, CampaignTimeline, WhyChooseUsGrid,
-               ClientsMarquee, TestimonialsCarousel, FAQAccordion, ContactCTA
-  pages/       One file per route (see src/App.tsx for the route table)
-  data/        Verified content (services, workflow, principles, FAQ, nav) +
-               placeholder content (clients, testimonials, portfolio)
-  lib/         Utilities, SEO helper, JSON-LD schema
-  hooks/       useLenis (smooth scroll)
+```bash
+npm run lint
 ```
 
-## Design system
+## Contact form
 
-- **Colors** — ink black (#0B0B0C), paper off-white (#F6F4EE), signal yellow (#FFC629, referencing
-  the yellow-and-black livery of Indian auto-rickshaws — one of TBA's core formats), route teal (#2F5D62)
-- **Type** — Archivo (display, extrabold/black weights) + Inter (body) + JetBrains Mono (data/labels)
-- **Signature motif** — a dashed "route line" connecting points, used in the Hero and the Campaign
-  Process timeline, echoing the transit routes TBA's vehicle branding travels
+The contact form submits enquiries through FormSubmit to:
+
+`admin@thebrandadvertising.in`
+
+The frontend shows success only after FormSubmit accepts the request. It also validates required fields, prevents duplicate submissions, times out stalled requests and displays a clear failure message. No API key, SMTP password or email credential is stored in the repository.
+
+If the recipient email changes, update `CONTACT_ENDPOINT` and the visible email references in `src/pages/Contact.jsx`, `src/components/Footer.jsx` and `src/pages/Home.jsx`. The new FormSubmit recipient may need to approve its first activation email.
+
+## Content and assets
+
+- `public/` contains the TBA logo, background videos, robots file and sitemap.
+- `src/assets/services/` contains the approved service images.
+- `src/assets/campaigns/events/` contains the Jodhpur and Ajmer campaign photographs.
+- `src/assets/contact/` contains the Contact page campaign images.
+- `src/assets/tba/` contains active TBA brand and leadership images.
+
+Large original image files were converted to optimized WebP versions. Only assets used by the active website are kept in the repository.
+
+## Deployment
+
+Every push to the `main` branch runs `.github/workflows/deploy.yml`, builds the site and deploys the `dist` output to GitHub Pages.
+
+For Hostinger or another static host:
+
+1. Run `npm run build`.
+2. Upload the contents of `dist/` to the hosting web root.
+3. Update `public/robots.txt`, `public/sitemap.xml`, the metadata URLs in `index.html`, and `FORM_SOURCE_URL` in `src/pages/Contact.jsx` to the final custom domain.
+
+## Confirmed business details
+
+- Email: `admin@thebrandadvertising.in`
+- Business hours: Monday to Saturday, 10:00 AM to 7:00 PM
+- Instagram: [the.brandadvertising](https://www.instagram.com/the.brandadvertising?igsh=aWM5eXE4bnl6YzRu)
+- LinkedIn: [Dimcy Aggarwal](https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/)
+- Facebook: [The Brand Advertising](https://www.facebook.com/profile.php?id=61584311907761)
+
+No phone number or WhatsApp number is published. The floating WhatsApp icon is intentionally informational until the client supplies an approved number.
